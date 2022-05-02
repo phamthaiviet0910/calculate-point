@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tính điểm ĐH khối D</h2>
+    <label for="math">Môn Toán </label><input type="text" id="math" name="math"><br><br>
+    <label for="liter">Môn Văn </label><input type="text" id="liter" name="liter"><br><br>
+    <label for="eng">Môn Anh </label><input type="text" id="eng" name="eng"><br><br>
+    <label for="location">Khu vực</label>
+    <select id="location" name="location">
+        <option value="KV1">KV1</option>
+        <option value="KV2">KV2</option>
+        <option value="KV2-NT">KV2-NT</option>
+        <option value="KV3">KV3</option>
+    </select><br><br>
+    <button id="calculator" onclick="calcPoint()">Tính điểm</button><br><br>
+    <span>Tổng điểm ĐH khối D của bạn là: </span><span id="point"></span>
+</body>
+<script>
+    function calcPoint(){
+        let math = +document.getElementById('math').value;
+        let liter = +document.getElementById('liter').value;
+        let eng = +document.getElementById('eng').value;
+        let locate = document.getElementById('location').value;
+        let point = document.getElementById('point');
+        let firstPoint = math + liter + eng;
+        switch (locate){
+            case 'KV1':
+                point.innerText = firstPoint + 0.75;
+                break;
+            case 'KV2':
+                point.innerText = firstPoint + 0.5;
+                break;
+            case 'KV2-NT':
+                point.innerText = firstPoint + 0.25;
+                break;
+            case 'KV3':
+                point.innerText = firstPoint + 0;
+                break;
+        }
+    }       
+</script>
+</html>
